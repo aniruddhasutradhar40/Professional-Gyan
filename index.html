@@ -1531,6 +1531,81 @@
       height: 100%;
       border: 0;
     }
+
+    /* ===== AI Resume Builder CTA Button ===== */
+    .ai-cta-wrap{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px 20px;
+    }
+    .ai-button{
+      position:relative;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding:18px 70px;
+      border:none;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:22px;
+      font-weight:700;
+      color:#fff;
+      text-decoration:none;
+      background:linear-gradient(
+          90deg,
+          #79c8ff,
+          #b18dff,
+          #ff6fcf,
+          #ffe770
+      );
+      box-shadow:
+      0 8px 25px rgba(181,140,255,.45),
+      0 0 20px rgba(255,255,255,.7);
+      overflow:hidden;
+      transition:.35s;
+    }
+    .ai-button::before{
+      content:"";
+      position:absolute;
+      inset:3px;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,.35);
+    }
+    .ai-button::after{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-130%;
+      width:60%;
+      height:100%;
+      background:linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.85),
+          transparent
+      );
+      transform:skewX(-20deg);
+      animation:ai-shine 3s infinite;
+    }
+    .ai-button:hover{
+      transform:scale(1.05);
+      box-shadow:
+      0 10px 35px rgba(181,140,255,.6),
+      0 0 40px rgba(255,180,255,.6),
+      0 0 60px rgba(120,210,255,.5);
+    }
+    @keyframes ai-shine{
+      100%{
+          left:160%;
+      }
+    }
+    @media (max-width:600px){
+      .ai-button{
+        padding:16px 40px;
+        font-size:18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1616,6 +1691,18 @@
       </div>
     </div>
   </header>
+
+  <!-- ============================================================
+     AI RESUME BUILDER CTA BUTTON
+     ============================================================ -->
+  <div class="ai-cta-wrap">
+    <a href="https://aniruddhasutradhar40.github.io/resume-builder/"
+       class="ai-button"
+       target="_blank"
+       rel="noopener noreferrer">
+      AI Resume Builder
+    </a>
+  </div>
 
   <!-- ============================================================
      IMPACT & ACHIEVEMENTS
