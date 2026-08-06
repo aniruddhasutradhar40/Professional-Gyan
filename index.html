@@ -1276,6 +1276,85 @@
       }
     }
 
+    /* ==================================================================
+   FREE E-BOOKS
+   ================================================================== */
+    .ebooks-grid {
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .ebook-card {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      max-width: 480px;
+      width: 100%;
+      color: var(--text-dark);
+    }
+
+    .ebook-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--blue-light);
+    }
+
+    .ebook-cover {
+      flex-shrink: 0;
+      width: 110px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+    }
+
+    .ebook-cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .ebook-tag {
+      display: inline-block;
+      background: var(--blue-pale);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .ebook-info h3 {
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+
+    .ebook-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    @media(max-width:768px) {
+      .ebook-card {
+        flex-direction: column;
+        text-align: center;
+        max-width: 100%;
+      }
+    }
+
     @media(min-width:769px) and (max-width:980px) {
       .courses-grid {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -1628,7 +1707,7 @@
         <li class="nav-dropdown">
           <a href="#services" class="nav-link nav-link-dropdown">Services <span class="drop-caret">▾</span></a>
           <ul class="dropdown-menu">
-            <li><a href="#services">E-Books</a></li>
+            <li><a href="#ebooks">E-Books</a></li>
             <li><a href="#services">Courses</a></li>
             <li><a href="#services">CV &amp; Resume</a></li>
             <li><a href="#services">LinkedIn Profile</a></li>
@@ -1840,7 +1919,7 @@
   <section class="section" id="services">
     <div class="container">
       <span class="eyebrow">Our Services</span>
-      <h2 class="section-title">Courses</h2>
+      <h2 class="section-title">Free Courses</h2>
       <p class="section-sub">Practical, career-ready learning for BBA &amp; CSE students and professionals.</p>
 
       <!-- Course Cards -->
@@ -1972,6 +2051,25 @@
         </div>
       </div>
 
+      <!-- Study Abroad Language Academy CTA -->
+      <div class="research-cta">
+        <div class="research-cta-inner">
+          <div class="research-cta-text">
+            <span class="eyebrow" style="margin-bottom:10px;">Language Training</span>
+            <h3>Study Abroad Language Academy</h3>
+            <p>English, Japanese, Korean &amp; Germany Language Training to prepare you for studying and working abroad.</p>
+          </div>
+          <a href="https://www.facebook.com/share/14k1E83gTRx/" target="_blank" rel="noopener"
+            class="research-cta-btn">
+            <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+              <path
+                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.866h2.773l-.443 2.89h-2.33v6.989C18.343 21.128 22 16.991 22 12z" />
+            </svg>
+            Study Abroad Language Academy
+          </a>
+        </div>
+      </div>
+
       <!-- Community Links -->
       <div class="community-row">
         <a href="https://www.facebook.com/share/g/1b4F62Syb8/" target="_blank" rel="noopener" class="community-card">
@@ -1996,6 +2094,39 @@
         </a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FREE E-BOOKS
+     ============================================================ -->
+  <section class="section section-soft" id="ebooks">
+    <div class="container">
+      <span class="eyebrow">Free Resources</span>
+      <h2 class="section-title">Free E-books</h2>
+      <p class="section-sub">Download our free e-books to boost your career skills.</p>
+
+      <div class="ebooks-grid">
+        <a href="https://drive.google.com/file/d/1rzMJ8r5l4LF9q4UIPtfI5_Pw4OUE7yvo/view?usp=drive_link"
+          target="_blank" rel="noopener" class="ebook-card">
+          <div class="ebook-cover">
+            <img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih2OamaP-85MdpQgyAx8CQ-7tBdhJfHmDXRuS0fui_oRwAYhQrrq0K4x8CyMqxpm1p_mYccJo6-ageTVL0vxeZsSl3KimPM35tZvD9i9Yce6EEVUdpolbjSCAhFNgusTq5-uplapczhJq4OT7b5gRPmgOgIfKrU3cohGk-z7DqOwonqLtNhEplZR9HtwOe/s320/book.png"
+              alt="Start Your Smart AI Accounting Career - E-book cover" loading="lazy">
+          </div>
+          <div class="ebook-info">
+            <span class="ebook-tag">Free E-book</span>
+            <h3>Start Your Smart AI Accounting Career</h3>
+            <span class="ebook-btn">
+              Read E-book
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" width="16" height="16">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -2030,6 +2161,13 @@
           <span class="p-type">Strategic Partner</span>
           <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQLbsFRRyxhq-ZqUMNADrsldB6ZxqZf-zNWCSRAFUliG0sVTOlURQt1TD5NnCj6ep2t_TD1q0__IjpXZ34V-0W8N3bEAiIHnTFIq3Ch4F0Dsr-7QkhmD3rDA4pkITlIWhI_OkIqHGjqcstEMWzaPNNpqy2Mj8P_h1enDJCW3j_B_OVaPiIGuvgKzgn8Oib/s320/Blue%20Red%20Minimal%20Professional%20Letter%20M%20Logo%20(1).jpg" alt="Youth Empower Program" loading="lazy">
           <h4>Youth Empower Program (YEP)</h4>
+        </div>
+
+        <!-- Language Partner -->
+        <div class="partner-logo-card">
+          <span class="p-type">Language Partner</span>
+          <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhgxnjvasReAHugY9-qHedjKweptJdUR6IiknbZd7BsiyNaAL9Zdx6KzTuqMRqzJZS2yW_-_HgNYZJsjX07XB_wTPh50LV9tWFrD8wVloK9BAlA5Be7m694g8x4pILWZ3d_HTi4rM0ljDo-ZnNHyJtEiqahCWvGUOtjlzAgK0XTwQjt48_Uqfbha8jIdmSH" alt="Study Abroad Language Academy" loading="lazy">
+          <h4>Study Abroad Language Academy</h4>
         </div>
 
       </div>
