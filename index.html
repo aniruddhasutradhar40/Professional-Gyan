@@ -1686,6 +1686,71 @@
         font-size:18px;
       }
     }
+  
+    /* ==================================================================
+   HERO CTA STACK + DASHBOARD BUTTON
+   ================================================================== */
+    .hero-cta-stack {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 100%;
+    }
+
+    .dashboard-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 34px;
+      border: none;
+      border-radius: 28px;
+      color: white;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      overflow: hidden;
+      background: linear-gradient(90deg, #b026ff, #f43f8a, #ff9800);
+      box-shadow: 0 0 12px rgba(255, 0, 200, .55), 0 0 28px rgba(255, 120, 0, .35);
+      animation: robotGlow 2s infinite alternate;
+    }
+
+    /* Robotic scanning light */
+    .dashboard-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -80%;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .65), transparent);
+      transform: skewX(-20deg);
+      animation: scan 2.5s infinite;
+    }
+
+    @keyframes robotGlow {
+      from {
+        box-shadow: 0 0 10px rgba(255, 0, 200, .45), 0 0 20px rgba(255, 120, 0, .25);
+      }
+      to {
+        box-shadow: 0 0 18px rgba(255, 0, 220, .8), 0 0 40px rgba(255, 120, 0, .55);
+      }
+    }
+
+    @keyframes scan {
+      0% { left: -80%; }
+      60%, 100% { left: 130%; }
+    }
+
+    @media (max-width: 600px) {
+      .dashboard-btn {
+        padding: 12px 30px;
+        font-size: 17px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1742,7 +1807,9 @@
         <p class="tagline">Empowering BBA &amp; CSE Students with Practical Skills for Career Success.</p>
         <p class="desc">Professional Gyan is an EdTech platform working on skill development for BBA and CSE students.
           We also provide professional services and learning opportunities for corporate professionals.</p>
-        <a href="https://wa.me/8801570219399" target="_blank" rel="noopener" class="btn-primary" id="heroWhatsappBtn">
+        <div class="hero-cta-stack">
+          <a href="https://aniruddhasutradhar40.github.io/Dashboard/" target="_blank" rel="noopener" class="dashboard-btn" aria-label="Open Dashboard"><span>Dashboard</span></a>
+          <a href="https://wa.me/8801570219399" target="_blank" rel="noopener" class="btn-primary" id="heroWhatsappBtn">
           <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
             <path
               d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-1.747-.696-2.893-1.236-4.043-3.012-.305-.532.305-.495.873-1.645.099-.21.05-.39-.05-.585-.099-.196-.674-1.62-.923-2.21-.247-.595-.5-.514-.673-.524-.173-.005-.372-.005-.572-.005-.198 0-.523.074-.797.372-.275.298-1.05 1.026-1.05 2.5 0 1.476 1.075 2.901 1.225 3.1.15.198 2.05 3.124 4.974 4.255 2.92 1.13 2.92.755 3.444.71.524-.05 1.7-.695 1.94-1.366.24-.67.24-1.245.165-1.366-.074-.124-.272-.198-.573-.347z" />
@@ -1751,6 +1818,7 @@
           </svg>
           Contact on WhatsApp
         </a>
+        </div>
       </div>
       <div class="hero-visual">
         <div class="hero-card">
