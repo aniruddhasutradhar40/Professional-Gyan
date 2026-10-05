@@ -263,6 +263,16 @@
       }
     }
 
+    .nav-dashboard-item {
+      display: none;
+    }
+
+    .nav-menu a.nav-dashboard-link,
+    .nav-menu a.nav-dashboard-link:hover {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -1463,6 +1473,11 @@
         display: flex;
       }
 
+      .nav-dashboard-item {
+        display: block;
+        width: 100%;
+      }
+
       .section {
         padding: 64px 0;
       }
@@ -1751,6 +1766,16 @@
         font-size: 17px;
       }
     }
+
+    .dashboard-note {
+      display: block;
+      margin-top: -4px;
+      max-width: 340px;
+      text-align: center;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text-gray);
+    }
   </style>
 </head>
 <body>
@@ -1772,18 +1797,16 @@
         <li class="nav-dropdown">
           <a href="#services" class="nav-link nav-link-dropdown">Services <span class="drop-caret">▾</span></a>
           <ul class="dropdown-menu">
-            <li><a href="#ebooks">E-Books</a></li>
-            <li><a href="#services">Courses</a></li>
+            <li><a href="#ebooks">Free E-Book</a></li>
+            <li><a href="#services">Free Courses</a></li>
             <li><a href="#services">CV &amp; Resume</a></li>
-            <li><a href="#services">LinkedIn Profile</a></li>
-            <li><a href="#services">Job Portal Profile</a></li>
-            <li><a href="#services">IT Service</a></li>
           </ul>
         </li>
         <li><a href="#partners" class="nav-link">Partners</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
         <li><a href="#impact" class="nav-link">Our Impact</a></li>
         <li><a href="https://www.facebook.com/share/g/1EYiPRSNRq/" target="_blank" rel="noopener" class="nav-link">Job Portal</a></li>
+        <li class="nav-dashboard-item"><a href="https://aniruddhasutradhar40.github.io/Dashboard/" target="_blank" rel="noopener" class="nav-dashboard-link">Dashboard</a></li>
         <li><a href="https://wa.me/8801570219399" target="_blank" rel="noopener" class="nav-cta nav-cta-mobile">Contact
             on WhatsApp</a></li>
       </ul>
@@ -1809,6 +1832,7 @@
           We also provide professional services and learning opportunities for corporate professionals.</p>
         <div class="hero-cta-stack">
           <a href="https://aniruddhasutradhar40.github.io/Dashboard/" target="_blank" rel="noopener" class="dashboard-btn" aria-label="Open Dashboard"><span>Dashboard</span></a>
+          <span class="dashboard-note">Dashboard এ ক্লিক করে Interview Preparation, Mock Test এবং আমাদের বিভিন্ন Paid Service দেখতে পারবেন।</span>
           <a href="https://wa.me/8801570219399" target="_blank" rel="noopener" class="btn-primary" id="heroWhatsappBtn">
           <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
             <path
