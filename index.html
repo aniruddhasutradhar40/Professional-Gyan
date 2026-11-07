@@ -1840,13 +1840,47 @@
    CLIENTS REVIEW
    ================================================================== */
     .review-wrap {
+      overflow: hidden;
+      position: relative;
+      padding: 14px 0 20px;
+    }
+
+    .review-wrap::before,
+    .review-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 60px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .review-wrap::before { left: 0; background: linear-gradient(to right, var(--bg-soft), transparent); }
+    .review-wrap::after { right: 0; background: linear-gradient(to left, var(--bg-soft), transparent); }
+
+    /* moves left -> right */
+    .review-track {
       display: flex;
-      justify-content: center;
+      gap: 24px;
+      width: max-content;
+      animation: reviewScrollLTR 30s linear infinite;
+    }
+
+    .review-track:hover { animation-play-state: paused; }
+
+    @keyframes reviewScrollLTR {
+      0%   { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .review-track { animation: none; }
     }
 
     .review-card {
-      max-width: 460px;
-      width: 100%;
+      flex-shrink: 0;
+      width: 380px;
+      max-width: 80vw;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 6px 40px 6px 40px;
@@ -1990,10 +2024,19 @@
       <h2 class="section-title">Our Clients Review</h2>
       <p class="section-sub">Real feedback from the students and professionals we have worked with.</p>
       <div class="review-wrap">
-        <div class="review-card">
-          <img
-            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii6QNaINg_LPH6Oy8dhj4Ed308vF63HhcqVK1ayzdwK6I_9xJNI8jv1X8O425_DBjvgjH-BZpPjZe8_TPzayWaIYK2sdVBw2AYVIoKW-Douv83wg5dwlmTHlLPomyuhbCVPrMxc8pFrg9DnG72POdcdmCfhRB8u6XDKnpxafOo2Y2_aeSLkIURkHaAfTm6/s720/WhatsApp%20Image%202026-11-05%20at%2010.23.59%20PM.jpeg"
-            alt="Client review for Professional Gyan" loading="lazy">
+        <div class="review-track">
+          <div class="review-card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii6QNaINg_LPH6Oy8dhj4Ed308vF63HhcqVK1ayzdwK6I_9xJNI8jv1X8O425_DBjvgjH-BZpPjZe8_TPzayWaIYK2sdVBw2AYVIoKW-Douv83wg5dwlmTHlLPomyuhbCVPrMxc8pFrg9DnG72POdcdmCfhRB8u6XDKnpxafOo2Y2_aeSLkIURkHaAfTm6/s720/WhatsApp%20Image%202026-11-05%20at%2010.23.59%20PM.jpeg" alt="Client review for Professional Gyan" loading="lazy">
+          </div>
+          <div class="review-card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwtNsiCOGmIu-rcWzeCCb76A-M8HOkPT_Rcdw8f9FnazlXWKQHSbNldhSvwdGIK-iP7T4_E6aO6YBxi8xQA820pWAyY6OZP_0RXxfk3mPRT30xkeReC7lgXwgVqvwwilgUREOPliOUaLp4DMTWNHmEp-GlgX4OE5BqUphcP4eES1LABxY_YPmHvILM43Ip/s720/WhatsApp%20Image%202026-11-07%20at%2012.31.48%20AM.jpeg" alt="Client review for Professional Gyan" loading="lazy">
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii6QNaINg_LPH6Oy8dhj4Ed308vF63HhcqVK1ayzdwK6I_9xJNI8jv1X8O425_DBjvgjH-BZpPjZe8_TPzayWaIYK2sdVBw2AYVIoKW-Douv83wg5dwlmTHlLPomyuhbCVPrMxc8pFrg9DnG72POdcdmCfhRB8u6XDKnpxafOo2Y2_aeSLkIURkHaAfTm6/s720/WhatsApp%20Image%202026-11-05%20at%2010.23.59%20PM.jpeg" alt="Client review for Professional Gyan" loading="lazy">
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwtNsiCOGmIu-rcWzeCCb76A-M8HOkPT_Rcdw8f9FnazlXWKQHSbNldhSvwdGIK-iP7T4_E6aO6YBxi8xQA820pWAyY6OZP_0RXxfk3mPRT30xkeReC7lgXwgVqvwwilgUREOPliOUaLp4DMTWNHmEp-GlgX4OE5BqUphcP4eES1LABxY_YPmHvILM43Ip/s720/WhatsApp%20Image%202026-11-07%20at%2012.31.48%20AM.jpeg" alt="Client review for Professional Gyan" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
