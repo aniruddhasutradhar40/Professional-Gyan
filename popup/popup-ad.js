@@ -9,7 +9,7 @@
 
   var CONFIG = {
     imageUrl:
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjv3_9dunPEUeDjTLn-v-ehF6IoQXxk3U9dCTCO-SB9r85Dmy4Tmtk22IK5f7SJUPNP1cbeQb4SODtM1cz5pNBhd0X0G5_5BA8bHiWIclYeaaqFoXRxDUxTxnl2zmVn262eTvFnGycfBBEyhwKGeLRfRhrzzvFREUMPKWnyL3w0JZYH5pkuAKHXUlzA5mOM/s1402/LinkedIn%20Profile%20and%20ATS%20CV%20Service%20Banner.png",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIFQOLi0rmRlINbG8nMXPbt-EhW8SfsvSL-v8v8L-7bmIA-d8oCm5GxkZJhQYzt2LKqklXjVx_RJaLSQR1MSkOgnS7g9E3AX7FiEk6_IA67vs4TQG9nnrttk0N5c-WY5oRU-MGZmYfo1J3AvdRa0jBkEvD_cEgHS41OzHM68PriaFUozYxTQlmU8cRhG4z/s1537/Professional%20Gyan%20CV%20Service%20Poster.png",
     whatsappUrl: "https://wa.me/8801570219399",
     message:
       "আমি 950 টাকার মধ্যে ATS Friendly CV/Resume, LinkedIn Profile Making, Professional Website Making এবং LinkedIn Personal Branding E-book নিতে চাই। বিস্তারিত জানতে চাই।",
