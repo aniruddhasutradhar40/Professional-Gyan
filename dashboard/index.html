@@ -46,16 +46,23 @@
     box-shadow:inset 2px 2px 4px var(--shadow-dark),inset -2px -2px 4px var(--shadow-light);
   }
 
+  /* Cards container: Mobile = vertical stack, PC = horizontal grid */
+  .cards{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
   /* Card */
   .card{
     width:100%;
+    display:flex;flex-direction:column;
     background:var(--card);
     border-radius:22px;
     padding:28px 28px 30px;
     box-shadow:14px 14px 30px var(--shadow-dark),-10px -10px 26px var(--shadow-light);
     border:1px solid rgba(255,255,255,.55);
   }
-  .card + .card{margin-top:30px}
   .thumb{
     display:block;width:100%;aspect-ratio:1254/705;object-fit:cover;
     border-radius:20px;
@@ -97,11 +104,13 @@
     font-size:1.08rem;line-height:1.95;color:var(--ink-soft);
   }
   .price-box{
-    margin-top:22px;
+    margin-top:auto;
     display:flex;align-items:center;justify-content:space-between;gap:12px;
     padding:14px 18px;border-radius:16px;
     box-shadow:inset 5px 5px 11px var(--shadow-dark),inset -5px -5px 11px var(--shadow-light);
   }
+  /* spacing between description and price box (keeps equal-height cards aligned) */
+  .desc{margin-bottom:22px}
   .price-label{font-family:'Hind Siliguri',sans-serif;font-size:.98rem;color:var(--ink-soft);font-weight:500}
   .price{
     font-family:'Hind Siliguri','Poppins',sans-serif;
@@ -145,6 +154,24 @@
     font-size:1.02rem;line-height:1.8;color:var(--ink-soft);
   }
 
+  /* ===== PC / Tablet: cards side by side (horizontal) ===== */
+  @media (min-width:768px){
+    body{padding:48px 32px 64px}
+    .wrap{max-width:1240px}
+    .cards{
+      grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+      gap:34px;
+      align-items:stretch;
+    }
+    .card{padding:24px 24px 28px}
+    .title{font-size:1.4rem}
+    .desc{font-size:1.02rem;line-height:1.85}
+    .price{font-size:1.8rem}
+  }
+  @media (min-width:1100px){
+    .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  }
+
   @media (max-width:420px){
     .card{padding:20px 18px 24px;border-radius:18px}
     .title{font-size:1.3rem}
@@ -173,6 +200,7 @@
   <section class="division" id="one-to-one" aria-labelledby="h-one">
     <div class="div-head"><h2 id="h-one">One To One Service</h2><span class="line"></span></div>
 
+    <div class="cards">
     <article class="card">
       <img class="thumb"
            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWqPHD_X3XQDiEfCV8oqDNHUeshtIb5n43Ko6w54kn7mhhp9BYhHkhgR1h2wzTvXCIe2gW9EDU2UPkJC7v53FFyyoW6LbpDmf6PyfYjosVdOE8Bpxk11E-G425MnSYhxKqr3YR-jQikkABNaQkHbvBGln4ypwM8355PfTGIJdFatljnvTTCrbqkpCNvAdm/s1402/ATS-Friendly%20CV%20Discount%20Banner.png"
@@ -256,12 +284,14 @@
         Enrollment Details
       </a>
     </article>
+    </div>
   </section>
 
   <!-- ========== EXAM ========== -->
   <section class="division" id="exam" aria-labelledby="h-exam">
     <div class="div-head"><h2 id="h-exam">Exam</h2><span class="line"></span></div>
 
+    <div class="cards">
     <article class="card">
       <img class="thumb"
            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC46pE4fVFPv9na01esZQq6FRIRxCw5t7HVGrl8MFnpBj57WsATU2BaAHeXVG0PNAvKGKJQbegXji3CT0mFTRzZ8JHMBevE6GilmTB_bnTa45pf1IxZWyxVrMzGTFFRGrFCmpDDZUB98JO9lEzo1f-RS-v7Adp3PxT_eFk0Bmv7wymfNcipUS1GMnpUV5j/s1254/Accounting%20Fresher%20Interview%20Mock%20Test%20Poster.png"
@@ -289,6 +319,7 @@
         Start Exam
       </a>
     </article>
+    </div>
   </section>
 
 </main>
