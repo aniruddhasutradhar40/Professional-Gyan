@@ -1,1 +1,234 @@
-hikhk
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATS-Friendly CV Making Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #e9ecf4;
+    --card: #eceff7;
+    --ink: #1a1a3a;
+    --text: #3d4260;
+    --muted: #5d627d;
+    --green: #22d06b;
+    --green-2: #1ec45f;
+    --shadow-dark: rgba(163, 172, 200, .55);
+    --shadow-light: rgba(255, 255, 255, .95);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Poppins", "Hind Siliguri", "Noto Sans Bengali", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 36px 16px 60px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  /* ---------- Top card (banner + title + fee) ---------- */
+  .top-card {
+    background: var(--card);
+    border-radius: 30px;
+    padding: 22px;
+    box-shadow: 12px 12px 28px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
+  }
+  .banner { border-radius: 24px; overflow: hidden; background: #fff; }
+  .banner img { display: block; width: 100%; height: auto; }
+
+  .title {
+    font-size: clamp(22px, 4.6vw, 30px);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin: 22px 4px 16px;
+  }
+
+  .fee-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: var(--card);
+    border-radius: 22px;
+    padding: 16px 22px;
+    box-shadow: inset 6px 6px 14px var(--shadow-dark), inset -6px -6px 14px var(--shadow-light);
+  }
+  .fee-label { font-size: 16px; font-weight: 500; color: var(--muted); }
+  .fee-right { display: flex; align-items: center; gap: 18px; }
+  .price { font-size: 32px; font-weight: 800; color: var(--ink); line-height: 1; }
+  .price small { font-size: 14px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+  .btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #2be07a, var(--green-2));
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 14px 30px;
+    border-radius: 16px;
+    box-shadow: 6px 6px 14px rgba(34, 160, 90, .35), -4px -4px 10px var(--shadow-light);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 8px 10px 18px rgba(34, 160, 90, .4), -4px -4px 10px var(--shadow-light); }
+  .btn:active { transform: translateY(0); }
+
+  /* ---------- Details card ---------- */
+  .details {
+    background: var(--card);
+    border-radius: 30px;
+    padding: 34px 28px;
+    margin-top: 30px;
+    box-shadow: 12px 12px 28px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
+  }
+  .details h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .details h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .details h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .details p { font-size: 16px; color: var(--text); margin-bottom: 10px; }
+  .details b { color: var(--ink); }
+  hr { border: none; height: 1px; background: rgba(120, 130, 170, .25); margin: 26px 0; }
+  .block { margin-bottom: 22px; }
+
+  .badge-free {
+    display: inline-block;
+    background: linear-gradient(135deg, #2be07a, var(--green-2));
+    color: var(--ink);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+    box-shadow: 3px 3px 8px rgba(34, 160, 90, .3);
+  }
+  .bonus {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 16px 18px;
+    box-shadow: inset 5px 5px 12px var(--shadow-dark), inset -5px -5px 12px var(--shadow-light);
+  }
+  .bonus p:last-child { margin-bottom: 0; }
+
+  .extra {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 14px 18px;
+    font-weight: 600;
+    color: var(--ink);
+    box-shadow: inset 5px 5px 12px var(--shadow-dark), inset -5px -5px 12px var(--shadow-light);
+  }
+  .contact a { color: #12a355; font-weight: 700; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  @media (max-width: 520px) {
+    body { padding: 20px 12px 40px; }
+    .top-card { padding: 14px; border-radius: 24px; }
+    .details { padding: 26px 18px; border-radius: 24px; }
+    .fee-bar { padding: 14px 16px; }
+    .fee-right { width: 100%; justify-content: space-between; }
+    .btn { padding: 12px 22px; font-size: 16px; }
+    .price { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Banner + Fee -->
+  <div class="top-card">
+    <div class="banner">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWqPHD_X3XQDiEfCV8oqDNHUeshtIb5n43Ko6w54kn7mhhp9BYhHkhgR1h2wzTvXCIe2gW9EDU2UPkJC7v53FFyyoW6LbpDmf6PyfYjosVdOE8Bpxk11E-G425MnSYhxKqr3YR-jQikkABNaQkHbvBGln4ypwM8355PfTGIJdFatljnvTTCrbqkpCNvAdm/s1402/ATS-Friendly%20CV%20Discount%20Banner.png"
+           alt="ATS-Friendly CV Making Service">
+    </div>
+
+    <h1 class="title">ATS-Friendly CV Making Service</h1>
+
+    <div class="fee-bar">
+      <span class="fee-label">Service Fee</span>
+      <div class="fee-right">
+        <div class="price">500<small>BDT</small></div>
+        <a class="btn" href="#" id="enroll">Enroll Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details -->
+  <div class="details">
+
+    <div class="block">
+      <h2>Enroll কীভাবে করবেন?</h2>
+      <p>Enrollment সম্পন্ন করতে নিচের ধাপগুলো অনুসরণ করুন:</p>
+      <p><b>Step 1:</b> Enroll Now অপশনে ক্লিক করুন।</p>
+      <p><b>Step 2:</b> আপনাকে একটি Google Form-এ নিয়ে যাওয়া হবে।</p>
+      <p><b>Step 3:</b> Google Form-এ দেওয়া নির্দেশনা অনুযায়ী bKash / Nagad-এ Send Money (Personal) করুন।</p>
+      <p><b>Step 4:</b> Payment সম্পন্ন করার পর প্রয়োজনীয় তথ্য দিয়ে Google Form পূরণ করে Submit করুন।</p>
+      <p><b>Step 5:</b> Form Submit করার পর আপনার Enrollment Complete হবে।</p>
+      <p>আমাদের Team ২৪ ঘণ্টার মধ্যে আপনার সঙ্গে যোগাযোগ করবে।</p>
+    </div>
+
+    <hr>
+
+    <div class="block">
+      <h3>Service Details</h3>
+      <h4>ATS-Friendly CV Making Service</h4>
+      <p>Professional Gyan-এর ATS-Friendly CV Making Service আপনার ক্যারিয়ার ও পার্সোনাল প্রোফাইলকে আরও প্রফেশনালভাবে উপস্থাপন করতে সাহায্য করবে।</p>
+    </div>
+
+    <div class="block">
+      <h3>আপনারা যা পাবেন</h3>
+
+      <h4>1. ATS-Friendly CV Writing</h4>
+      <p>ATS-Friendly Format, Professional Design এবং Job-based Keyword সহ আপনার Skills ও Experience Highlight করা হবে।</p>
+
+      <h4>2. Modern &amp; Clean Design</h4>
+      <p>Recruiter-এর নজর কাড়ে এমন সহজ, পরিষ্কার ও প্রফেশনাল CV Layout।</p>
+
+      <h4>3. Skills &amp; Experience Optimization</h4>
+      <p>আপনার Education, Skills, Experience ও Achievements সুন্দরভাবে সাজিয়ে উপস্থাপন করা হবে।</p>
+
+      <div class="bonus">
+        <h4>4. Free Portfolio Personal Website <span class="badge-free">FREE</span></h4>
+        <p>CV-এর সাথে বোনাস হিসেবে পাচ্ছেন আপনার নিজের একটি Portfolio Personal Website, যেখানে আপনার Profile, Skills, Experience ও Contact Information সুন্দরভাবে উপস্থাপন করা থাকবে।</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>অতিরিক্ত 150 Taka চার্জ প্রযোজ্য</h3>
+      <div class="extra">পরবর্তীতে Website &amp; CV Update, Modification বা Additional Information যোগ করার ক্ষেত্রে আলাদা চার্জ প্রযোজ্য হবে।</div>
+    </div>
+
+    <div class="contact">
+      <h3>যোগাযোগ</h3>
+      <p>আরও তথ্যের জন্য WhatsApp করুন: <a href="https://wa.me/8801570219399">+880 1570-219399</a></p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Google Form link ekhane boshan
+  var FORM_URL = "#";
+  document.getElementById("enroll").setAttribute("href", FORM_URL);
+</script>
+</body>
+</html>
