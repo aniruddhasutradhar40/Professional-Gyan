@@ -186,6 +186,10 @@
     display:none;
   }
   .menu-panel.open{display:block}
+  .menu-btn,.menu-panel{transition:box-shadow .2s ease,transform .25s ease,opacity .25s ease,visibility .25s ease}
+  .topbar.scrolled #menuBtn,.topbar.scrolled .menu-panel{
+    opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-14px);
+  }
   .menu-panel a{
     display:block;padding:12px 14px;border-radius:12px;
     color:var(--ink);text-decoration:none;
@@ -411,6 +415,14 @@
 (function(){
   var btn=document.getElementById('menuBtn'),panel=document.getElementById('menuPanel');
   function setOpen(o){panel.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');}
+  var bar=document.querySelector('.topbar');
+  function onScroll(){
+    var y=window.pageYOffset||document.documentElement.scrollTop||0;
+    if(y>10){bar.classList.add('scrolled');setOpen(false);}
+    else{bar.classList.remove('scrolled');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
   btn.addEventListener('click',function(e){e.stopPropagation();setOpen(!panel.classList.contains('open'));});
   panel.addEventListener('click',function(e){if(e.target.tagName==='A')setOpen(false);});
   document.addEventListener('click',function(e){if(!panel.contains(e.target))setOpen(false);});
