@@ -154,6 +154,58 @@
     font-size:1.02rem;line-height:1.8;color:var(--ink-soft);
   }
 
+
+  /* ===== 3-dot menu (scrolls away with the page) ===== */
+  html{scroll-behavior:smooth}
+  .topbar{
+    position:relative;display:flex;justify-content:space-between;align-items:center;
+    margin:-8px 4px 18px;
+  }
+  .menu-btn{
+    width:48px;height:48px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--card);color:var(--ink);cursor:pointer;
+    border:1px solid rgba(255,255,255,.6);
+    box-shadow:7px 7px 15px var(--shadow-dark),-6px -6px 14px var(--shadow-light);
+    transition:box-shadow .2s ease,transform .2s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .menu-btn svg{width:24px;height:24px;fill:var(--ink)}
+  .back-btn{text-decoration:none}
+  .back-btn svg{width:24px;height:24px;fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .menu-btn:active,.menu-btn[aria-expanded="true"]{
+    box-shadow:inset 4px 4px 9px var(--shadow-dark),inset -4px -4px 9px var(--shadow-light);
+  }
+  .menu-btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .menu-panel{
+    position:absolute;top:58px;right:0;z-index:50;
+    width:min(280px,calc(100vw - 32px));
+    padding:10px;border-radius:18px;
+    background:var(--card);border:1px solid rgba(255,255,255,.6);
+    box-shadow:12px 12px 26px var(--shadow-dark),-8px -8px 20px var(--shadow-light);
+    display:none;
+  }
+  .menu-panel.open{display:block}
+  .menu-panel a{
+    display:block;padding:12px 14px;border-radius:12px;
+    color:var(--ink);text-decoration:none;
+    font-family:'Poppins','Hind Siliguri',sans-serif;font-size:.98rem;font-weight:500;
+  }
+  .menu-panel a:hover,.menu-panel a:focus-visible{
+    outline:none;
+    box-shadow:inset 3px 3px 7px var(--shadow-dark),inset -3px -3px 7px var(--shadow-light);
+  }
+  .menu-panel .menu-contact{
+    margin-top:6px;padding:12px 14px 8px;
+    border-top:2px solid rgba(163,170,196,.35);
+    font-family:'Poppins','Hind Siliguri',sans-serif;font-size:.98rem;font-weight:500;color:var(--ink);
+  }
+  .menu-panel .menu-contact a.wa{
+    display:inline-block;padding:4px 0 0;margin-top:2px;
+    color:#25D366;font-weight:600;text-decoration:underline;
+  }
+  .menu-panel .menu-contact a.wa:hover{box-shadow:none;color:#1ebe5b}
+
   /* ===== PC / Tablet: cards side by side (horizontal) ===== */
   @media (min-width:768px){
     body{padding:48px 32px 64px}
@@ -178,11 +230,31 @@
     .desc{font-size:1rem;line-height:1.85}
     .price{font-size:1.7rem}
   }
-  @media (prefers-reduced-motion:reduce){.btn{transition:none}.rating svg{animation:none}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.menu-btn{transition:none}.btn{transition:none}.rating svg{animation:none}}
 </style>
 </head>
 <body>
 <main class="wrap">
+
+  <!-- =========== 3-DOT MENU =========== -->
+  <div class="topbar">
+    <a class="menu-btn back-btn" href="https://professionalgyan.com/" aria-label="Back to Professional Gyan" title="Back">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-haspopup="true" aria-expanded="false" aria-controls="menuPanel">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="19" r="2.2"/></svg>
+    </button>
+    <nav class="menu-panel" id="menuPanel" aria-label="Sections">
+      <a href="#bootcamp">Boot-camp</a>
+      <a href="#one-to-one">One To One Service</a>
+      <a href="#exam">Exam</a>
+      <a href="#intl-hub">Free International Learning Hub</a>
+      <div class="menu-contact">
+        Contact<br>
+        <a class="wa" href="https://wa.me/8801570219399" target="_blank" rel="noopener">+880 1570-219399</a>
+      </div>
+    </nav>
+  </div>
 
   <!-- =========== BOOT-CAMP ========== -->
   <section class="division" id="bootcamp" aria-labelledby="h-bootcamp">
@@ -322,6 +394,28 @@
     </div>
   </section>
 
+  <!-- ========== FREE INTERNATIONAL LEARNING HUB ========== -->
+  <section class="division" id="intl-hub" aria-labelledby="h-intl">
+    <div class="div-head"><h2 id="h-intl">Free International Learning Hub</h2><span class="line"></span></div>
+    <div class="placeholder">
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v5.4l4.2 2.5-.8 1.3L11 13V7h2z"/></svg>
+      </div>
+      <h3>Coming Soon</h3>
+      <p>Free International Learning Hub শীঘ্রই এখানে যুক্ত করা হবে।</p>
+    </div>
+  </section>
+
 </main>
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'),panel=document.getElementById('menuPanel');
+  function setOpen(o){panel.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');}
+  btn.addEventListener('click',function(e){e.stopPropagation();setOpen(!panel.classList.contains('open'));});
+  panel.addEventListener('click',function(e){if(e.target.tagName==='A')setOpen(false);});
+  document.addEventListener('click',function(e){if(!panel.contains(e.target))setOpen(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){setOpen(false);btn.focus();}});
+})();
+</script>
 </body>
 </html>
