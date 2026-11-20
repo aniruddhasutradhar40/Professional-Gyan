@@ -155,6 +155,65 @@
   }
 
 
+  /* Video embed */
+  .video-container{
+    position:relative;
+    width:100%;
+    aspect-ratio:16 / 9;
+    overflow:hidden;
+    border-radius:12px;
+  }
+  .video-container iframe{
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  /* Dropdowns (Curriculum / Practice File) */
+  .dd{margin-top:20px}
+  .dd + .dd{margin-top:16px}
+  .dd summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:15px 18px;border-radius:14px;
+    border:1px solid rgba(255,255,255,.6);
+    background:var(--card);color:var(--ink);
+    font-family:'Poppins','Hind Siliguri',sans-serif;font-size:1.05rem;font-weight:500;
+    box-shadow:7px 7px 15px var(--shadow-dark),-6px -6px 14px var(--shadow-light);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .dd summary::-webkit-details-marker{display:none}
+  .dd summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .dd summary .chev{
+    width:22px;height:22px;flex:none;fill:none;stroke:var(--ink);
+    stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+    transition:transform .25s ease;
+  }
+  .dd[open] summary{
+    box-shadow:inset 4px 4px 9px var(--shadow-dark),inset -4px -4px 9px var(--shadow-light);
+  }
+  .dd[open] summary .chev{transform:rotate(180deg)}
+  .dd-body{
+    margin-top:14px;padding:6px 16px;border-radius:16px;
+    box-shadow:inset 5px 5px 11px var(--shadow-dark),inset -5px -5px 11px var(--shadow-light);
+  }
+  .lessons{list-style:none}
+  .lessons li{
+    display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+    padding:12px 0;
+    font-family:'Hind Siliguri','Poppins',sans-serif;font-size:1rem;line-height:1.6;color:var(--ink-soft);
+  }
+  .lessons li + li{border-top:2px solid rgba(163,170,196,.3)}
+  .lessons .time{
+    flex:none;font-family:'Poppins',sans-serif;font-size:.88rem;font-weight:500;
+    color:var(--accent);padding-top:2px;white-space:nowrap;
+  }
+  .file-link{
+    display:block;padding:12px 0;
+    font-family:'Poppins','Hind Siliguri',sans-serif;font-size:1rem;font-weight:500;
+    color:#1a56db;text-decoration:underline;word-break:break-word;
+  }
+
   /* ===== 3-dot menu (scrolls away with the page) ===== */
   html{scroll-behavior:smooth}
   .topbar{
@@ -234,7 +293,7 @@
     .desc{font-size:1rem;line-height:1.85}
     .price{font-size:1.7rem}
   }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.menu-btn{transition:none}.btn{transition:none}.rating svg{animation:none}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dd summary .chev{transition:none}.menu-btn{transition:none}.btn{transition:none}.rating svg{animation:none}}
 </style>
 </head>
 <body>
@@ -401,12 +460,56 @@
   <!-- ========== FREE INTERNATIONAL LEARNING HUB ========== -->
   <section class="division" id="intl-hub" aria-labelledby="h-intl">
     <div class="div-head"><h2 id="h-intl">Free International Learning Hub</h2><span class="line"></span></div>
-    <div class="placeholder">
-      <div class="icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v5.4l4.2 2.5-.8 1.3L11 13V7h2z"/></svg>
+
+    <div class="cards">
+    <article class="card">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/wGBKIB8945w"
+          title="Learn Full Excel Course from Basic to Advanced with AI"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
       </div>
-      <h3>Coming Soon</h3>
-      <p>Free International Learning Hub শীঘ্রই এখানে যুক্ত করা হবে।</p>
+
+      <h3 class="title">Beginner to Advance Excel Masterclass</h3>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <p class="desc" style="margin:10px 0 4px;font-weight:600;color:var(--ink)">কোর্সের মূল বিষয়বস্তু (Curriculum):</p>
+          <ul class="lessons">
+          <li><span>লেসন ১: এক্সেল পরিচিতি (Excel Introduction)</span><span class="time">0:05:58</span></li>
+          <li><span>লেসন ২: ডেটা এন্ট্রি (Data Entry in Excel)</span><span class="time">0:43:41</span></li>
+          <li><span>লেসন ৩: প্রয়োজনীয় ফর্মুলা (Essential Formulas)</span><span class="time">1:13:10</span></li>
+          <li><span>লেসন ৪: IF ফর্মুলা (IF Formulas in Excel)</span><span class="time">1:30:35</span></li>
+          <li><span>লেসন ৫: নেস্টেড IF এবং IFS ফর্মুলা (Nested IF and IFS Formula)</span><span class="time">1:51:25</span></li>
+          <li><span>লেসন ৬: কন্ডিশনাল ফরম্যাটিং (Conditional Formatting)</span><span class="time">2:13:29</span></li>
+          <li><span>লেসন ৭: ডেটা সর্টিং (Sort Data in Excel)</span><span class="time">2:38:40</span></li>
+          <li><span>লেসন ৮: ডেটা ফিল্টারিং (Filter Data in Excel)</span><span class="time">2:52:42</span></li>
+          <li><span>লেসন ৯: সর্ট এবং ফিল্টার ফর্মুলা (Sort and Filter Formula)</span><span class="time">3:14:26</span></li>
+          <li><span>লেসন ১০: ডেটা ভ্যালিডেশন (Data Validation)</span><span class="time">3:36:12</span></li>
+          <li><span>লেসন ১১: ডুপ্লিকেট রিমুভ, টেক্সট টু কলাম এবং ফ্ল্যাশ ফিল (Remove Duplicate, Text to Columns, Flash Fill)</span><span class="time">3:49:44</span></li>
+          <li><span>লেসন ১২: পেস্ট স্পেশাল এবং গো টু স্পেশাল (Paste Special & GoTo Special)</span><span class="time">4:03:57</span></li>
+          <li><span>লেসন ১৩: ৩১টি এক্সেল ফর্মুলা (31 Excel Formulas)</span><span class="time">4:41:38</span></li>
+          <li><span>লেসন ১৪: পিভট টেবিল মাস্টারক্লাস (Pivot Table Masterclass)</span><span class="time">6:20:46</span></li>
+          <li><span>লেসন ১৫: পাওয়ার পিভট টেবিল (PowerPivot Table)</span><span class="time">9:46:44</span></li>
+          <li><span>লেসন ১৬: অফিস ৩৬৫ এবং লেটেস্ট ফর্মুলা (Office 365 and Latest formulas)</span><span class="time">11:46:38</span></li>
+          <li><span>লেসন ১৭: এক্সেলের এআই ব্যবহার (AI Use in Excel)</span><span class="time">12:58:26</span></li>
+          <li><span>লেসন ১৮: ক্লড এআই এক্সটেনশন (Claude AI Extension in Excel)</span><span class="time">14:07:39</span></li>
+          <li><span>লেসন ১৯: ফ্রিল্যান্সিং গাইডলাইন (Freelancing)</span><span class="time">14:40:01</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="dd">
+        <summary>Practice File <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <a class="file-link" href="https://docs.google.com/spreadsheets/d/10pgJnbo7xjKIgqeM5YXfqq55UtkNpy5O/edit?usp=drive_link&amp;ouid=101736811249875811015&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Practice File (Google/Excel Sheets) খুলুন</a>
+        </div>
+      </details>
+    </article>
     </div>
   </section>
 
