@@ -214,6 +214,19 @@
     color:#1a56db;text-decoration:underline;word-break:break-word;
   }
 
+  /* Module-style curriculum (additive) */
+  .cur-mod{padding:12px 0}
+  .cur-mod + .cur-mod{border-top:2px solid rgba(163,170,196,.3)}
+  .cur-mod-h{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+    font-family:'Poppins','Hind Siliguri',sans-serif;font-size:1.02rem;font-weight:600;color:var(--ink);line-height:1.5}
+  .cur-mod-h .time{flex:none;font-size:.88rem;font-weight:500;color:var(--accent);white-space:nowrap;padding-top:2px}
+  .cur-mod-s{margin:2px 0 6px;font-family:'Hind Siliguri','Poppins',sans-serif;font-size:.95rem;font-weight:600;color:var(--ink-soft)}
+  .cur-intro{margin:4px 0 0;font-family:'Hind Siliguri','Poppins',sans-serif;font-size:1rem;line-height:1.7;color:var(--ink-soft)}
+  .cur-sub{margin:12px 0 2px;font-family:'Hind Siliguri','Poppins',sans-serif;font-size:.98rem;font-weight:600;color:var(--ink)}
+  .cur-ul{list-style:disc;padding-left:22px;margin:4px 0}
+  .cur-ul li{font-family:'Hind Siliguri','Poppins',sans-serif;font-size:1rem;line-height:1.65;color:var(--ink-soft);padding:2px 0}
+
+
   /* ===== 3-dot menu (scrolls away with the page) ===== */
   html{scroll-behavior:smooth}
   .topbar{
@@ -508,10 +521,41 @@
       <details class="dd">
         <summary>Practice File <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
         <div class="dd-body">
+          <a class="file-link" href="https://docs.google.com/spreadsheets/d/1TpseuD-e1CbruJn-MsG8jvOMMjiRmZh7/edit?usp=drive_link&amp;ouid=101736811249875811015&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Practice File (Google/Excel Sheets) খুলুন</a>
+        </div>
+      </details>
+    </article>
+
+    <article class="card">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/-RldB_86liE?rel=0"
+          title="How to Automate Excel with Python"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h3 class="title">How to Automate Excel with Python</h3>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+<div class="cur-mod"><div class="cur-mod-h"><span>Python for Excel Automation &amp; Data Analytics</span></div><p class="cur-mod-s">কোর্স কারিকুলাম</p><p class="cur-intro">এই কোর্সে Python ব্যবহার করে Microsoft Excel-এর কাজ অটোমেশন, ডেটা ম্যানেজমেন্ট, ডেটা ক্লিনিং, অ্যাডভান্সড ডেটা প্রসেসিং এবং ডেটা অ্যানালাইসিস শেখানো হবে। বাস্তবভিত্তিক উদাহরণ ও প্র্যাকটিক্যাল প্রজেক্টের মাধ্যমে শিক্ষার্থীরা Excel-এর দৈনন্দিন কাজগুলো Python ব্যবহার করে আরও দ্রুত, নির্ভুল ও কার্যকরভাবে সম্পন্ন করতে পারবেন।</p></div><div class="cur-mod"><div class="cur-mod-h"><span>মডিউল ০১: Python Inside Excel</span><span class="time">00:00 – 02:04</span></div><p class="cur-mod-s">এক্সেলের ভেতরে পাইথনের ব্যবহার ও পরিচিতি</p><ul class="cur-ul"><li>Python Inside Excel-এর প্রাথমিক পরিচিতি।</li><li>Microsoft Excel-এর সঙ্গে Python-এর সম্পর্ক ও কার্যপদ্ধতি।</li><li>Excel-এ Python ব্যবহারের প্রয়োজনীয়তা ও সুবিধা।</li><li>Excel-এর ডেটা Python দিয়ে বিশ্লেষণ ও প্রসেস করা।</li><li>Excel-এ Python Formula ব্যবহার করার প্রাথমিক ধারণা।</li><li>প্রচলিত Excel Functions ও Python-এর মধ্যে পার্থক্য।</li><li>বাস্তব কাজে Python Inside Excel-এর ব্যবহার ও প্রয়োগক্ষেত্র।</li></ul></div><div class="cur-mod"><div class="cur-mod-h"><span>মডিউল ০২: OpenPyXL দিয়ে Excel Automation</span><span class="time">02:04 – 01:25:04</span></div><p class="cur-mod-s">Python ব্যবহার করে Excel ফাইল তৈরি, পরিচালনা ও অটোমেশন</p><h5 class="cur-sub">২.১ ওয়ার্কবুক ও ওয়ার্কশিট ম্যানেজমেন্ট</h5><ul class="cur-ul"><li>নতুন Excel Workbook তৈরি ও সংরক্ষণ করা।</li><li>বিদ্যমান Excel ফাইল লোড ও পরিচালনা করা।</li><li>নতুন Worksheet তৈরি ও নাম পরিবর্তন করা।</li><li>একাধিক Worksheet তৈরি ও পরিচালনা করা।</li></ul><h5 class="cur-sub">২.২ ডেটা এন্ট্রি ও ম্যানেজমেন্ট</h5><ul class="cur-ul"><li>Excel Cell-এ ডেটা ইনপুট করা।</li><li>Cell থেকে ডেটা পড়া ও সংগ্রহ করা।</li><li>একাধিক সেলে অটোমেটিক ডেটা ইনপুট করা।</li><li>বিদ্যমান ডেটার সঙ্গে নতুন ডেটা সংযুক্ত করা।</li><li>Row ও Column অনুযায়ী ডেটা পরিচালনা করা।</li></ul><h5 class="cur-sub">২.৩ সেল ফরম্যাটিং ও ডিজাইন</h5><ul class="cur-ul"><li>Font Style, Font Size ও Font Color পরিবর্তন।</li><li>Cell Background ও Pattern Fill ব্যবহার।</li><li>Cell Border ও Alignment নির্ধারণ।</li><li>Number, Date ও Currency Formatting।</li><li>একাধিক সেলে একসঙ্গে Formatting প্রয়োগ।</li></ul><h5 class="cur-sub">২.৪ অ্যাডভান্সড এক্সেল অপারেশন</h5><ul class="cur-ul"><li>নতুন Row ও Column যুক্ত করা।</li><li>Row ও Column ডিলিট করা।</li><li>Freeze Panes ব্যবহার করে Row ও Column স্থির রাখা।</li><li>Excel Table তৈরি ও Formatting করা।</li><li>Excel-এ Chart তৈরি ও কাস্টমাইজ করা।</li><li>Cell-এ Formula যুক্ত করা (SUM, AVERAGE, TODAY, NOW ইত্যাদি)।</li><li>Cell-এ Comment যুক্ত ও পরিচালনা করা।</li></ul></div><div class="cur-mod"><div class="cur-mod-h"><span>মডিউল ০৩: Pandas দিয়ে Excel Data Processing &amp; Analytics</span><span class="time">01:25:04 – 04:04:04</span></div><p class="cur-mod-s">বড় ডেটাসেট ম্যানেজমেন্ট, ডেটা ক্লিনিং ও অ্যাডভান্সড অ্যানালাইসিস</p><h5 class="cur-sub">৩.১ DataFrame ও Excel Data Management</h5><ul class="cur-ul"><li>Pandas-এর পরিচিতি ও ব্যবহার।</li><li>Excel ফাইল Import ও Export করা।</li><li>DataFrame তৈরি ও পরিচালনা করা।</li><li>Row, Column ও Table Operations।</li><li>একাধিক Excel ফাইলের ডেটা একত্র করা।</li></ul><h5 class="cur-sub">৩.২ Data Cleaning &amp; Preprocessing</h5><ul class="cur-ul"><li>অতিরিক্ত স্পেস (Extra Spaces) অপসারণ।</li><li>Uppercase ও Lowercase-এ টেক্সট রূপান্তর।</li><li>অপ্রয়োজনীয় Special Characters অপসারণ।</li><li>Missing ও Null Values শনাক্ত করা।</li><li>Missing Values পূরণ ও অপসারণ করা।</li><li>Duplicate Data শনাক্ত ও অপসারণ করা।</li><li>Column Data Type পরিবর্তন করা (যেমন: Salary String থেকে Integer)।</li></ul><h5 class="cur-sub">৩.৩ Data Filtering &amp; Sorting</h5><ul class="cur-ul"><li>নির্দিষ্ট শর্ত অনুযায়ী ডেটা ফিল্টার করা।</li><li>৫,০০০ টাকার বেশি Sales-এর ডেটা বের করা।</li><li>Salary বা Sales অনুযায়ী ডেটা সাজানো।</li><li>Highest to Lowest এবং Lowest to Highest Sorting।</li><li>Top 5 Salary বা সর্বোচ্চ মানের ডেটা বের করা।</li><li>নির্দিষ্ট Category ও Department অনুযায়ী ডেটা সংগ্রহ।</li></ul><h5 class="cur-sub">৩.৪ Mathematical Calculation &amp; Financial Analysis</h5><ul class="cur-ul"><li>Total Sales ও Total Revenue হিসাব।</li><li>Tax Percentage ও Tax Amount নির্ণয়।</li><li>Discount ও Net Sales হিসাব।</li><li>Minimum ও Maximum Value নির্ণয়।</li><li>Average, Sum ও অন্যান্য Statistical Calculation।</li><li>Profit ও Loss Analysis।</li><li>Financial Data Processing ও Reporting।</li></ul><h5 class="cur-sub">৩.৫ Data Visualization</h5><ul class="cur-ul"><li>Python ব্যবহার করে Excel Data Visualize করা।</li><li>Bar Chart ও Pie Chart তৈরি।</li><li>Histogram তৈরি ও বিশ্লেষণ।</li><li>Scatter Plot তৈরি।</li><li>Line Chart তৈরি।</li><li>ডেটার প্রবণতা ও তুলনামূলক বিশ্লেষণ।</li></ul><h5 class="cur-sub">৩.৬ Grouping &amp; Analytical Reporting</h5><ul class="cur-ul"><li>Category অনুযায়ী ডেটা Grouping।</li><li>Department অনুযায়ী Salary Analysis।</li><li>Category অনুযায়ী Average Profit নির্ণয়।</li><li>GroupBy ও Aggregation ব্যবহার।</li><li>Pivot Table-এর মতো Analytical Summary তৈরি।</li><li>ডেটা থেকে গুরুত্বপূর্ণ Business Insights বের করা।</li></ul></div><div class="cur-mod"><div class="cur-mod-h"><span>মডিউল ০৪: Practical Projects &amp; Real-Life Applications</span></div><p class="cur-mod-s">বাস্তবভিত্তিক প্রজেক্টের মাধ্যমে দক্ষতা অর্জন</p><ul class="cur-ul"><li>Automated Excel Report Generation।</li><li>Employee Salary &amp; Payroll Data Analysis।</li><li>Sales &amp; Revenue Analysis Dashboard।</li><li>Business Expense &amp; Financial Data Analysis।</li><li>Inventory &amp; Stock Management Automation।</li><li>Monthly Sales Performance Report।</li><li>Automated Data Cleaning &amp; Consolidation।</li></ul></div><div class="cur-mod"><div class="cur-mod-h"><span>কোর্স শেষে শিক্ষার্থীরা যা শিখবেন</span></div><ul class="cur-ul"><li>Python ব্যবহার করে Excel-এর বিভিন্ন কাজ অটোমেট করতে পারবেন।</li><li>OpenPyXL দিয়ে Excel ফাইল তৈরি, সম্পাদনা ও ফরম্যাটিং করতে পারবেন।</li><li>Pandas ব্যবহার করে বড় ডেটাসেট প্রসেস ও বিশ্লেষণ করতে পারবেন।</li><li>ডেটা ক্লিনিং, ফিল্টারিং, সর্টিং ও রিপোর্টিং করতে পারবেন।</li><li>Financial ও Business Data Analysis করতে পারবেন।</li><li>Python ব্যবহার করে চার্ট, রিপোর্ট ও অ্যানালিটিক্যাল সামারি তৈরি করতে পারবেন।</li><li>বাস্তব ব্যবসায়িক কাজে Excel Automation ও Data Analytics প্রয়োগ করতে পারবেন।</li></ul></div>
+        </div>
+      </details>
+
+      <details class="dd">
+        <summary>Practice File <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
           <a class="file-link" href="https://docs.google.com/spreadsheets/d/10pgJnbo7xjKIgqeM5YXfqq55UtkNpy5O/edit?usp=drive_link&amp;ouid=101736811249875811015&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Practice File (Google/Excel Sheets) খুলুন</a>
         </div>
       </details>
     </article>
+
     </div>
   </section>
 
