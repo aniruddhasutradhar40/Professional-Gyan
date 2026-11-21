@@ -311,7 +311,42 @@
     .desc{font-size:1rem;line-height:1.85}
     .price{font-size:1.7rem}
   }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dd summary .chev{transition:none}.menu-btn{transition:none}.btn{transition:none}.rating svg{animation:none}}
+
+  /* ===== Share buttons ===== */
+  .title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-top:18px}
+  .title-row .title{margin-top:0;flex:1;min-width:0}
+  .share-btn{
+    flex:none;width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--card);color:var(--ink);cursor:pointer;
+    border:2px solid #5a5f7a;
+    box-shadow:6px 6px 12px var(--shadow-dark),-5px -5px 11px var(--shadow-light);
+    transition:box-shadow .2s ease,transform .2s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .share-btn svg{width:21px;height:21px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .share-btn .i-share circle{fill:var(--ink);stroke:none}
+  .share-btn .i-check{display:none;stroke:var(--green);stroke-width:2.8}
+  .share-btn:hover{box-shadow:3px 3px 8px var(--shadow-dark),-3px -3px 8px var(--shadow-light)}
+  .share-btn:active,.share-btn.copied{
+    box-shadow:inset 4px 4px 9px var(--shadow-dark),inset -4px -4px 9px var(--shadow-light);
+  }
+  .share-btn.copied .i-share{display:none}
+  .share-btn.copied .i-check{display:block}
+  .share-btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .card,.division{scroll-margin-top:16px}
+  .card:target{outline:3px solid rgba(31,42,90,.35);outline-offset:4px}
+  .toast{
+    position:fixed;left:50%;bottom:28px;z-index:100;
+    transform:translate(-50%,20px);opacity:0;pointer-events:none;
+    padding:12px 22px;border-radius:14px;
+    background:var(--accent);color:#fff;
+    font-family:'Poppins','Hind Siliguri',sans-serif;font-size:.95rem;font-weight:500;
+    box-shadow:0 10px 24px rgba(31,42,90,.35);
+    transition:opacity .25s ease,transform .25s ease;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dd summary .chev{transition:none}.menu-btn{transition:none}.btn{transition:none}.rating svg{animation:none}.share-btn,.toast{transition:none}}
 </style>
 </head>
 <body>
@@ -355,12 +390,12 @@
     <div class="div-head"><h2 id="h-one">One To One Service</h2><span class="line"></span></div>
 
     <div class="cards">
-    <article class="card">
+    <article class="card" id="cv-writing">
       <img class="thumb"
            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWqPHD_X3XQDiEfCV8oqDNHUeshtIb5n43Ko6w54kn7mhhp9BYhHkhgR1h2wzTvXCIe2gW9EDU2UPkJC7v53FFyyoW6LbpDmf6PyfYjosVdOE8Bpxk11E-G425MnSYhxKqr3YR-jQikkABNaQkHbvBGln4ypwM8355PfTGIJdFatljnvTTCrbqkpCNvAdm/s1402/ATS-Friendly%20CV%20Discount%20Banner.png"
            alt="ATS-Friendly CV Writing Service" loading="lazy">
 
-      <h3 class="title">ATS-Friendly CV Writing Service</h3>
+      <div class="title-row"><h3 class="title">ATS-Friendly CV Writing Service</h3><button type="button" class="share-btn" data-share="cv-writing" aria-label="Copy link: ATS-Friendly CV Writing Service" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
 
       <div class="rating" role="img" aria-label="Rated 5 out of 5">
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
@@ -383,12 +418,12 @@
       </a>
     </article>
 
-    <article class="card">
+    <article class="card" id="professional-profile">
       <img class="thumb"
            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWfcU3tPLgqnIwT2deah_17pN71nSTF5qpKy4Uu3ZHkyYlZFchMAFkStgAMvy-rRIQLl86nlNxlpORDLmcThl37aes9EWhKTJhyphenhyphen6hwgp7ExwMIcmt9nVEtV_oamu_dKqy5MR_vOteMhzU7d8SX-5BDG4REyn2UFWWOp1RtU_aFaev3VbC2avSKlo7h7Sgc/s1254/Professional%20Gyan%20Career%20Services%20Banner.png"
            alt="Professional Profile Development Service" loading="lazy">
 
-      <h3 class="title">Professional Profile Development Service<span class="tick" aria-label="Verified"></span></h3>
+      <div class="title-row"><h3 class="title">Professional Profile Development Service<span class="tick" aria-label="Verified"></span></h3><button type="button" class="share-btn" data-share="professional-profile" aria-label="Copy link: Professional Profile Development Service" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
 
       <div class="rating" role="img" aria-label="Rated 5 out of 5">
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
@@ -411,12 +446,12 @@
       </a>
     </article>
 
-    <article class="card">
+    <article class="card" id="linkedin-cv">
       <img class="thumb"
            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjv3_9dunPEUeDjTLn-v-ehF6IoQXxk3U9dCTCO-SB9r85Dmy4Tmtk22IK5f7SJUPNP1cbeQb4SODtM1cz5pNBhd0X0G5_5BA8bHiWIclYeaaqFoXRxDUxTxnl2zmVn262eTvFnGycfBBEyhwKGeLRfRhrzzvFREUMPKWnyL3w0JZYH5pkuAKHXUlzA5mOM/s1402/LinkedIn%20Profile%20and%20ATS%20CV%20Service%20Banner.png"
            alt="LinkedIn Profile & ATS-Friendly CV Making Service" loading="lazy">
 
-      <h3 class="title">LinkedIn Profile &amp; ATS-Friendly CV Making Service</h3>
+      <div class="title-row"><h3 class="title">LinkedIn Profile &amp; ATS-Friendly CV Making Service</h3><button type="button" class="share-btn" data-share="linkedin-cv" aria-label="Copy link: LinkedIn Profile & ATS-Friendly CV Making Service" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
 
       <div class="rating" role="img" aria-label="Rated 5 out of 5">
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
@@ -446,12 +481,12 @@
     <div class="div-head"><h2 id="h-exam">Exam</h2><span class="line"></span></div>
 
     <div class="cards">
-    <article class="card">
+    <article class="card" id="fresher-accountant-mock-test">
       <img class="thumb"
            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC46pE4fVFPv9na01esZQq6FRIRxCw5t7HVGrl8MFnpBj57WsATU2BaAHeXVG0PNAvKGKJQbegXji3CT0mFTRzZ8JHMBevE6GilmTB_bnTa45pf1IxZWyxVrMzGTFFRGrFCmpDDZUB98JO9lEzo1f-RS-v7Adp3PxT_eFk0Bmv7wymfNcipUS1GMnpUV5j/s1254/Accounting%20Fresher%20Interview%20Mock%20Test%20Poster.png"
            alt="Accounting Fresher Interview Mock Test Poster" loading="lazy">
 
-      <h3 class="title">Fresher Accountant Interview Mock Test (MCQ)</h3>
+      <div class="title-row"><h3 class="title">Fresher Accountant Interview Mock Test (MCQ)</h3><button type="button" class="share-btn" data-share="fresher-accountant-mock-test" aria-label="Copy link: Fresher Accountant Interview Mock Test (MCQ)" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
 
       <div class="rating" role="img" aria-label="Rated 5 out of 5">
         <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z"/></svg>
@@ -482,7 +517,7 @@
     <p class="hub-note">All third-party courses, videos, and trademarks belong to their respective owners and institutions. Professional Gyan only curates and embeds publicly available educational resources for learning purposes.</p>
 
     <div class="cards">
-    <article class="card">
+    <article class="card" id="excel-masterclass">
       <div class="video-container">
         <iframe
           src="https://www.youtube.com/embed/wGBKI6B945w?rel=0"
@@ -495,7 +530,7 @@
         </iframe>
       </div>
 
-      <h3 class="title">Beginner to Advance Excel Masterclass</h3>
+      <div class="title-row"><h3 class="title">Beginner to Advance Excel Masterclass</h3><button type="button" class="share-btn" data-share="excel-masterclass" aria-label="Copy link: Beginner to Advance Excel Masterclass" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
 
       <details class="dd">
         <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
@@ -533,7 +568,7 @@
       </details>
     </article>
 
-    <article class="card">
+    <article class="card" id="excel-python-automation">
       <div class="video-container">
         <iframe
           src="https://www.youtube.com/embed/-RldB_86liE?rel=0"
@@ -546,7 +581,7 @@
         </iframe>
       </div>
 
-      <h3 class="title">How to Automate Excel with Python</h3>
+      <div class="title-row"><h3 class="title">How to Automate Excel with Python</h3><button type="button" class="share-btn" data-share="excel-python-automation" aria-label="Copy link: How to Automate Excel with Python" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
 
       <details class="dd">
         <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
@@ -595,6 +630,45 @@
   panel.addEventListener('click',function(e){if(e.target.tagName==='A')setOpen(false);});
   document.addEventListener('click',function(e){if(!panel.contains(e.target))setOpen(false);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){setOpen(false);btn.focus();}});
+})();
+</script>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Link copied!</div>
+<script>
+(function(){
+  var toast=document.getElementById('toast'),tt;
+  function show(msg){
+    toast.textContent=msg;toast.classList.add('show');
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show');},1800);
+  }
+  function fallbackCopy(text){
+    var ta=document.createElement('textarea');
+    ta.value=text;ta.setAttribute('readonly','');
+    ta.style.cssText='position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,text.length);
+    var ok=false;try{ok=document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);return ok;
+  }
+  function copy(text){
+    if(navigator.clipboard&&window.isSecureContext){
+      return navigator.clipboard.writeText(text).then(function(){return true;},function(){return fallbackCopy(text);});
+    }
+    return Promise.resolve(fallbackCopy(text));
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.share-btn');
+    if(!b)return;
+    var url=location.href.split('#')[0]+'#'+b.getAttribute('data-share');
+    copy(url).then(function(ok){
+      if(ok){
+        b.classList.add('copied');
+        setTimeout(function(){b.classList.remove('copied');},1600);
+        show('Link copied!');
+      }else{
+        window.prompt('Copy this link:',url);
+      }
+    });
+  });
 })();
 </script>
 </body>
