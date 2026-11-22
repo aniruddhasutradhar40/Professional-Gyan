@@ -162,6 +162,66 @@
     .card{border-radius:28px;padding:48px 24px 30px}
     .input{height:52px}
   }
+
+  /* ===== SaaS colour theme (override) ===== */
+  :root{
+    --purple:#172554;   /* deep navy */
+    --blue:#1d4ed8;     /* primary */
+    --cyan:#3b82f6;     /* accent */
+    --ink:#0f172a;
+    --muted:#64748b;
+    --line:#e2e8f0;
+    --lavender:#f8fafc;
+    --grad:linear-gradient(90deg,#172554,#1d4ed8);
+  }
+  body{
+    background:
+      radial-gradient(900px 500px at 10% -10%, #e0e9ff 0%, transparent 60%),
+      radial-gradient(800px 500px at 100% 110%, #e6f0ff 0%, transparent 60%),
+      #f8fafc;
+  }
+  .card-wrap{
+    padding:1px;border-radius:22px;background:#e2e8f0;
+    box-shadow:0 1px 2px rgba(15,23,42,.06),0 24px 48px -20px rgba(15,23,42,.22);
+  }
+  .card-wrap::before{display:none}
+  .card{border-radius:21px}
+  .card::before{height:4px;background:linear-gradient(90deg,#172554,#1d4ed8,#3b82f6)}
+  .badge{color:#1d4ed8;background:#eff6ff;border-color:#dbeafe}
+  .badge i{background:#3b82f6;box-shadow:0 0 0 4px rgba(59,130,246,.18)}
+  h1 span{background:linear-gradient(90deg,#172554,#1d4ed8);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .input{border-radius:10px;border-color:#e2e8f0;background:#fff}
+  .input:hover{border-color:#cbd5e1}
+  .input:focus{border-color:#1d4ed8;box-shadow:0 0 0 4px rgba(29,78,216,.12)}
+  .btn{
+    border-radius:10px;background:linear-gradient(180deg,#1d4ed8,#172554);
+    box-shadow:0 1px 2px rgba(15,23,42,.2),0 10px 20px -8px rgba(29,78,216,.5);
+  }
+  .btn:hover{box-shadow:0 1px 2px rgba(15,23,42,.2),0 14px 26px -8px rgba(29,78,216,.55)}
+  .privacy{background:#f8fafc;border-color:#e2e8f0}
+  .check{background:linear-gradient(135deg,#172554,#1d4ed8);box-shadow:0 12px 26px -8px rgba(29,78,216,.5)}
+  .link-box{border-color:#bfdbfe;background:#f8fafc;border-radius:10px}
+  .link-box svg{stroke:#1d4ed8}
+  .link-box a,footer a{color:#1d4ed8}
+  footer a:hover{color:#172554;border-color:#172554}
+
+  /* ===== Blue + White SaaS layout (override) ===== */
+  body{
+    background:
+      radial-gradient(700px 420px at 12% 0%, rgba(255,255,255,.16) 0%, transparent 60%),
+      radial-gradient(700px 420px at 100% 100%, rgba(255,255,255,.10) 0%, transparent 60%),
+      linear-gradient(160deg,#1e40af 0%,#1d4ed8 55%,#2563eb 100%);
+    background-attachment:fixed;
+  }
+  .card-wrap{
+    background:rgba(255,255,255,.35);
+    box-shadow:0 30px 60px -20px rgba(15,23,42,.45),0 0 0 1px rgba(255,255,255,.25);
+  }
+  .card{background:#ffffff}
+  .btn{background:linear-gradient(180deg,#2563eb,#1d4ed8);box-shadow:0 1px 2px rgba(15,23,42,.25),0 10px 20px -8px rgba(29,78,216,.6)}
+  footer{color:rgba(255,255,255,.85)}
+  footer a{color:#ffffff;border-bottom-color:rgba(255,255,255,.5)}
+  footer a:hover{color:#ffffff;border-color:#ffffff}
 </style>
 </head>
 <body>
