@@ -213,6 +213,8 @@
     flex:none;font-family:'Poppins',sans-serif;font-size:.88rem;font-weight:500;
     color:var(--accent);padding-top:2px;white-space:nowrap;
   }
+  .lessons .time a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  .lessons .time a:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
   .file-link{
     display:block;padding:12px 0;
     font-family:'Poppins','Hind Siliguri',sans-serif;font-size:1rem;font-weight:500;
@@ -276,6 +278,25 @@
     outline:none;
     box-shadow:inset 3px 3px 7px var(--shadow-dark),inset -3px -3px 7px var(--shadow-light);
   }
+  .menu-panel{max-height:calc(100vh - 90px);overflow-y:auto;overscroll-behavior:contain}
+  .menu-dd summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:12px 14px;border-radius:12px;color:var(--ink);
+    font-family:'Poppins','Hind Siliguri',sans-serif;font-size:.98rem;font-weight:500;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .menu-dd summary::-webkit-details-marker{display:none}
+  .menu-dd summary:hover,.menu-dd summary:focus-visible{
+    outline:none;
+    box-shadow:inset 3px 3px 7px var(--shadow-dark),inset -3px -3px 7px var(--shadow-light);
+  }
+  .menu-dd summary .chev{
+    width:20px;height:20px;flex:none;fill:none;stroke:var(--ink);
+    stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease;
+  }
+  .menu-dd[open] summary .chev{transform:rotate(180deg)}
+  .menu-sub{margin:4px 0 6px 10px;padding-left:8px;border-left:2px solid rgba(163,170,196,.45)}
+  .menu-panel .menu-sub a{padding:9px 12px;font-size:.92rem;font-weight:500;line-height:1.4}
   .menu-panel .menu-contact{
     margin-top:6px;padding:12px 14px 8px;
     border-top:2px solid rgba(163,170,196,.35);
@@ -286,6 +307,26 @@
     color:#25D366;font-weight:600;text-decoration:underline;
   }
   .menu-panel .menu-contact a.wa:hover{box-shadow:none;color:#1ebe5b}
+
+  /* ===== Back to top (bottom of page) ===== */
+  .to-top-row{
+    position:fixed;right:16px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;
+    opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px);
+    transition:opacity .25s ease,visibility .25s ease,transform .25s ease;
+  }
+  .to-top-row.show{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+  .to-top{
+    width:52px;height:52px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--card);cursor:pointer;
+    border:1px solid rgba(255,255,255,.6);
+    box-shadow:7px 7px 15px var(--shadow-dark),-6px -6px 14px var(--shadow-light);
+    transition:box-shadow .2s ease,transform .2s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .to-top svg{width:24px;height:24px;fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .to-top:active{box-shadow:inset 4px 4px 9px var(--shadow-dark),inset -4px -4px 9px var(--shadow-light)}
+  .to-top:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
   /* ===== PC / Tablet: cards side by side (horizontal) ===== */
   @media (min-width:768px){
@@ -346,7 +387,7 @@
     transition:opacity .25s ease,transform .25s ease;
   }
   .toast.show{opacity:1;transform:translate(-50%,0)}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dd summary .chev{transition:none}.menu-btn{transition:none}.btn{transition:none}.rating svg{animation:none}.share-btn,.toast{transition:none}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dd summary .chev{transition:none}.menu-btn{transition:none}.btn{transition:none}.rating svg{animation:none}.share-btn,.toast{transition:none}.to-top-row,.to-top{transition:none}}
 </style>
 </head>
 <body>
@@ -361,10 +402,32 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="19" r="2.2"/></svg>
     </button>
     <nav class="menu-panel" id="menuPanel" aria-label="Sections">
-      <a href="#bootcamp">Boot-camp</a>
-      <a href="#one-to-one">One To One Service</a>
+      <a href="#bootcamp">Paid Boot-camp</a>
+      <details class="menu-dd">
+        <summary>One To One Service <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="menu-sub">
+        <a href="#one-to-one">All Services</a>
+        <a href="#cv-writing">ATS-Friendly CV Writing Service</a>
+        <a href="#professional-profile">Professional Profile Development Service</a>
+        <a href="#linkedin-cv">LinkedIn Profile &amp; ATS-Friendly CV Making Service</a>
+        </div>
+      </details>
       <a href="#exam">Exam</a>
-      <a href="#intl-hub">Free International Learning Hub</a>
+      <details class="menu-dd">
+        <summary>Free International Learning Hub <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="menu-sub">
+        <a href="#intl-hub">All Courses</a>
+        <a href="#excel-masterclass">Beginner to Advance Excel Masterclass</a>
+        <a href="#excel-python-automation">How to Automate Excel with Python</a>
+        <a href="#agentic-ai-course">Agentic AI – Complete Course for Beginners</a>
+        <a href="#cybersecurity-course">CyberSecurity Full Course</a>
+        <a href="#financial-accounting-course">Complete Financial Accounting Course</a>
+        <a href="#python-beginners-course">Python Full Course for Beginners</a>
+        <a href="#data-analyst-course">Data Analyst Full Course</a>
+        <a href="#business-analyst-course">Business Analyst Full Course</a>
+        <a href="#supply-chain-course">COMPLETE Supply Chain Management Course</a>
+        </div>
+      </details>
       <a href="#free-resources">Free Resources</a>
       <div class="menu-contact">
         Contact<br>
@@ -375,13 +438,13 @@
 
   <!-- =========== BOOT-CAMP ========== -->
   <section class="division" id="bootcamp" aria-labelledby="h-bootcamp">
-    <div class="div-head"><h2 id="h-bootcamp">Boot-camp</h2><span class="line"></span></div>
+    <div class="div-head"><h2 id="h-bootcamp">Paid Boot-camp</h2><span class="line"></span></div>
     <div class="placeholder">
       <div class="icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v5.4l4.2 2.5-.8 1.3L11 13V7h2z"/></svg>
       </div>
       <h3>Coming Soon</h3>
-      <p>Boot-camp কোর্সগুলো শীঘ্রই এখানে যুক্ত করা হবে।</p>
+      <p>Paid Boot-camp কোর্সগুলো শীঘ্রই এখানে যুক্ত করা হবে।</p>
     </div>
   </section>
 
@@ -598,6 +661,294 @@
       </details>
     </article>
 
+    <article class="card" id="agentic-ai-course">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/Zy7EXDONlTY?rel=0"
+          title="Agentic AI – Complete Course for Beginners"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="title-row"><h3 class="title">Agentic AI – Complete Course for Beginners</h3><button type="button" class="share-btn" data-share="agentic-ai-course" aria-label="Copy link: Agentic AI – Complete Course for Beginners" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <ul class="lessons">
+          <li><span>Introduction &amp; Planning</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY" target="_blank" rel="noopener">00:00:00</a></span></li>
+          <li><span>Evolution from LLMs to Agentic AI</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=513s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">00:08:33</a></span></li>
+          <li><span>Agentic AI: Core Characteristics &amp; Components</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=2486s" target="_blank" rel="noopener">00:41:26</a></span></li>
+          <li><span>Asynchronous Programming for AI Agents</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=5598s" target="_blank" rel="noopener">01:33:18</a></span></li>
+          <li><span>Pydantic for AI Agents - Pydantic Data Validation</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=7583s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">02:06:23</a></span></li>
+          <li><span>Building End-to-End Single AI Agent System using LangChain</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=12428s" target="_blank" rel="noopener">03:27:08</a></span></li>
+          <li><span>Building End-to-End Multi-Agent AI System with LangChain</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=17377s" target="_blank" rel="noopener">04:49:37</a></span></li>
+          <li><span>What is LangGraph &amp; Why It’s Required? | LangChain vs LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=23427s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">06:30:27</a></span></li>
+          <li><span>Understanding LangGraph Core Components</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=27883s" target="_blank" rel="noopener">07:44:43</a></span></li>
+          <li><span>Build Sequential Workflows in LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=30547s" target="_blank" rel="noopener">08:29:07</a></span></li>
+          <li><span>Implement Parallel Workflows in LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=33544s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">09:19:04</a></span></li>
+          <li><span>Master Conditional Workflows in LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=36927s" target="_blank" rel="noopener">10:15:27</a></span></li>
+          <li><span>LangGraph Iterative Workflows Explained</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=39965s" target="_blank" rel="noopener">11:06:05</a></span></li>
+          <li><span>Build Your First Agentic Chatbot with LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=41751s" target="_blank" rel="noopener">11:35:51</a></span></li>
+          <li><span>Why Persistence is Required in LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=45829s" target="_blank" rel="noopener">12:43:49</a></span></li>
+          <li><span>Streaming Responses in Agentic Chatbot with LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=49860s" target="_blank" rel="noopener">13:51:00</a></span></li>
+          <li><span>How to Add Chat Threading in Agentic Chatbot using LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=51002s" target="_blank" rel="noopener">14:10:02</a></span></li>
+          <li><span>Build Permanent Chat Persistence Memory with LangGraph and Database</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=52922s" target="_blank" rel="noopener">14:42:02</a></span></li>
+          <li><span>Monitor Your Agentic Chatbot with LangSmith &amp; LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=54991s" target="_blank" rel="noopener">15:16:31</a></span></li>
+          <li><span>How to Integrate Tools in Agentic Chatbot with LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=56424s" target="_blank" rel="noopener">15:40:24</a></span></li>
+          <li><span>Implement RAG in Agentic Chatbot with LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=60857s" target="_blank" rel="noopener">16:54:17</a></span></li>
+          <li><span>Implement Human-in-the-Loop (HITL) in Agentic Chatbot using LangGraph</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=64227s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">17:50:27</a></span></li>
+          <li><span>Agentic Chatbot CI/CD Deployment on AWS with Docker &amp; GitHub Actions</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=67689s" target="_blank" rel="noopener">18:48:09</a></span></li>
+          <li><span>Deploy Agentic AI Chatbot on Render for FREE with Docker</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=71525s" target="_blank" rel="noopener">19:52:05</a></span></li>
+          <li><span>Project: Build Your Own ChatGPT Agent with LLMs, LangGraph, FastAPI, LangSmith, ChromaDB, SQLAlchemy &amp; AWS</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=72387s" target="_blank" rel="noopener">20:06:27</a></span></li>
+          <li><span>Project: Build TripMate AI End-to-End: Multi-Agent Travel Planner with Groq, LangGraph, PostgreSQL &amp; FastAPI</span><span class="time"><a href="https://www.youtube.com/watch?v=Zy7EXDONlTY&amp;t=80477s" target="_blank" rel="noopener">22:21:17</a></span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="dd">
+        <summary>Practice File <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <a class="file-link" href="https://github.com/entbappy/Complete-Agentic-AI-Course" target="_blank" rel="noopener">Practice File (GitHub Code) খুলুন</a>
+        </div>
+      </details>
+    </article>
+
+    <article class="card" id="cybersecurity-course">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/g-eMgUROvUw?rel=0"
+          title="CyberSecurity Full Course"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="title-row"><h3 class="title">CyberSecurity Full Course</h3><button type="button" class="share-btn" data-share="cybersecurity-course" aria-label="Copy link: CyberSecurity Full Course" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <ul class="cur-ul"><li>Cybersecurity Fundamentals</li><li>Operating System and Network Security</li><li>Secure System and Application Design</li><li>Prompt Engineering</li><li>Governance Risk and Compliance</li><li>Ethical Hacking and Penetration Testing</li><li>AIPowered Offensive Security</li><li>AIEnhanced Defensive Security</li><li>Threat Detection amp Incident Response</li><li>Vulnerability Assessment</li><li>Malware and Ransomware Analysis</li><li>Cloud Security Concepts</li></ul>
+        </div>
+      </details>
+    </article>
+
+    <article class="card" id="financial-accounting-course">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/eyXKvOrDoqw?rel=0"
+          title="Complete Financial Accounting Course"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="title-row"><h3 class="title">Complete Financial Accounting Course</h3><button type="button" class="share-btn" data-share="financial-accounting-course" aria-label="Copy link: Complete Financial Accounting Course" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <ul class="lessons">
+          <li><span>Module 1: Introduction to the Financial Statements</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw" target="_blank" rel="noopener">00:00</a></span></li>
+          <li><span>Module 2: Recording Transactions</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=4630s" target="_blank" rel="noopener">1:17:10</a></span></li>
+          <li><span>Module 3: Adjusting Entries and Closing Entries</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=10155s" target="_blank" rel="noopener">2:49:15</a></span></li>
+          <li><span>Module 4: Cash</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=15864s" target="_blank" rel="noopener">4:24:24</a></span></li>
+          <li><span>Module 5: Receivables</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=18040s" target="_blank" rel="noopener">5:00:40</a></span></li>
+          <li><span>Module 6: Inventory Purchases, Sales, Returns and Discounts</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=20250s" target="_blank" rel="noopener">5:37:30</a></span></li>
+          <li><span>Module 7: Cost of Inventory (FIFO, LIFO, Weighted Average)</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=22823s" target="_blank" rel="noopener">6:20:23</a></span></li>
+          <li><span>Module 8: Property, Plant and Equipment</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=25593s" target="_blank" rel="noopener">7:06:33</a></span></li>
+          <li><span>Module 9: Liabilities and Bonds</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=28048s" target="_blank" rel="noopener">7:47:28</a></span></li>
+          <li><span>Module 10: Equity</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=32050s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">8:54:10</a></span></li>
+          <li><span>Module 11: Statement of Cash Flows</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=33273s" target="_blank" rel="noopener">9:14:33</a></span></li>
+          <li><span>Module 12: Ratios and Financial Statement Analysis</span><span class="time"><a href="https://www.youtube.com/watch?v=eyXKvOrDoqw&amp;t=36433s" target="_blank" rel="noopener">10:07:13</a></span></li>
+          </ul>
+        </div>
+      </details>
+    </article>
+
+    <article class="card" id="python-beginners-course">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/K5KVEU3aaeQ?rel=0"
+          title="Python Full Course for Beginners"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="title-row"><h3 class="title">Python Full Course for Beginners</h3><button type="button" class="share-btn" data-share="python-beginners-course" aria-label="Copy link: Python Full Course for Beginners" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <ul class="lessons">
+          <li><span>Introduction</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ" target="_blank" rel="noopener">0:00:00</a></span></li>
+          <li><span>What is Python?</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=56s" target="_blank" rel="noopener">0:00:56</a></span></li>
+          <li><span>Installing Python</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=251s" target="_blank" rel="noopener">0:04:11</a></span></li>
+          <li><span>Python Interpreter</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=336s" target="_blank" rel="noopener">0:05:36</a></span></li>
+          <li><span>Code Editors</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=450s" target="_blank" rel="noopener">0:07:30</a></span></li>
+          <li><span>Your First Python Program</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=529s" target="_blank" rel="noopener">0:08:49</a></span></li>
+          <li><span>Python Extension</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=745s" target="_blank" rel="noopener">0:12:25</a></span></li>
+          <li><span>Linting Python Code</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=866s" target="_blank" rel="noopener">0:14:26</a></span></li>
+          <li><span>Formatting Python Code</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=1120s" target="_blank" rel="noopener">0:18:40</a></span></li>
+          <li><span>Running Python Code</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=1371s" target="_blank" rel="noopener">0:22:51</a></span></li>
+          <li><span>Python Implementations</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=1470s" target="_blank" rel="noopener">0:24:30</a></span></li>
+          <li><span>How Python Code is Executed</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=1619s" target="_blank" rel="noopener">0:26:59</a></span></li>
+          <li><span>Quiz</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=1785s" target="_blank" rel="noopener">0:29:45</a></span></li>
+          <li><span>Python Mastery Course</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=1877s" target="_blank" rel="noopener">0:31:17</a></span></li>
+          <li><span>Variables</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=1904s" target="_blank" rel="noopener">0:31:44</a></span></li>
+          <li><span>Variable Names</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=2088s" target="_blank" rel="noopener">0:34:48</a></span></li>
+          <li><span>Strings</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=2271s" target="_blank" rel="noopener">0:37:51</a></span></li>
+          <li><span>Escape Sequences</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=2600s" target="_blank" rel="noopener">0:43:20</a></span></li>
+          <li><span>Formatted Strings</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=2761s" target="_blank" rel="noopener">0:46:01</a></span></li>
+          <li><span>String Methods</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=2889s" target="_blank" rel="noopener">0:48:09</a></span></li>
+          <li><span>Numbers</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=3243s" target="_blank" rel="noopener">0:54:03</a></span></li>
+          <li><span>Working With Numbers</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=3410s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">0:56:50</a></span></li>
+          <li><span>Type Conversion</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=3539s" target="_blank" rel="noopener">0:58:59</a></span></li>
+          <li><span>Quiz</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=3843s" target="_blank" rel="noopener">1:04:03</a></span></li>
+          <li><span>Comparison Operators</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=4003s" target="_blank" rel="noopener">1:06:43</a></span></li>
+          <li><span>Conditional Statements</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=4126s" target="_blank" rel="noopener">1:08:46</a></span></li>
+          <li><span>Ternary Operator</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=4376s" target="_blank" rel="noopener">1:12:56</a></span></li>
+          <li><span>Logical Operators</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=4504s" target="_blank" rel="noopener">1:15:04</a></span></li>
+          <li><span>Short-circuit Evaluations</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=4747s" target="_blank" rel="noopener">1:19:07</a></span></li>
+          <li><span>Chaining Comparison Operators</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=4873s" target="_blank" rel="noopener">1:21:13</a></span></li>
+          <li><span>Quiz</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=4955s" target="_blank" rel="noopener">1:22:35</a></span></li>
+          <li><span>For Loops</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=5058s" target="_blank" rel="noopener">1:24:18</a></span></li>
+          <li><span>For..Else</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=5276s" target="_blank" rel="noopener">1:27:56</a></span></li>
+          <li><span>Nested Loops</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=5442s" target="_blank" rel="noopener">1:30:42</a></span></li>
+          <li><span>Iterables</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=5606s" target="_blank" rel="noopener">1:33:26</a></span></li>
+          <li><span>While Loops</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=5794s" target="_blank" rel="noopener">1:36:34</a></span></li>
+          <li><span>Infinite Loops</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=6093s" target="_blank" rel="noopener">1:41:33</a></span></li>
+          <li><span>Exercise</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=6190s" target="_blank" rel="noopener">1:43:10</a></span></li>
+          <li><span>Defining Functions</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=6313s" target="_blank" rel="noopener">1:45:13</a></span></li>
+          <li><span>Arguments</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=6457s" target="_blank" rel="noopener">1:47:37</a></span></li>
+          <li><span>Types of Functions</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=6597s" target="_blank" rel="noopener">1:49:57</a></span></li>
+          <li><span>Keyword Arguments</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=6839s" target="_blank" rel="noopener">1:53:59</a></span></li>
+          <li><span>Default Arguments</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=6959s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">1:55:59</a></span></li>
+          <li><span>xargs</span><span class="time"><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ&amp;t=7054s" target="_blank" rel="noopener">1:57:34</a></span></li>
+          </ul>
+        </div>
+      </details>
+    </article>
+
+    <article class="card" id="data-analyst-course">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/G77a3yeagHU?rel=0"
+          title="Data Analyst Full Course"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="title-row"><h3 class="title">Data Analyst Full Course</h3><button type="button" class="share-btn" data-share="data-analyst-course" aria-label="Copy link: Data Analyst Full Course" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <ul class="cur-ul"><li>Data Analytics</li><li>Statistical Analysis using Excel</li><li>Data Analysis using Python and R</li><li>Data Visualization Tableau and Power BI</li><li>Linear and logistic regression modules</li><li>Clustering using KMeans</li><li>Supervised Learning</li><li>Unsupervised Learning</li></ul>
+        </div>
+      </details>
+    </article>
+
+    <article class="card" id="business-analyst-course">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/2nPzHSFCpLk?rel=0"
+          title="Business Analyst Full Course"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="title-row"><h3 class="title">Business Analyst Full Course</h3><button type="button" class="share-btn" data-share="business-analyst-course" aria-label="Copy link: Business Analyst Full Course" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <ul class="cur-ul"><li>Business Analysis</li><li>Data Elicitation</li><li>Data Analysis</li><li>Data Visualization</li><li>Data Cleaning</li><li>Data Preparation</li><li>Life Cycle Management</li><li>Strategy Analysis</li><li>Solution Evaluation</li><li>Excel Macros</li><li>Excel VBA</li><li>Pivot Table</li><li>Dashboarding</li><li>Data Modeling</li><li>Model Calculations</li><li>Model Performance</li><li>Documentation</li><li>Collaboration</li><li>Process Mining</li><li>Agile Thinking</li><li>Agile Methodologies</li><li>Design Thinking</li><li>Data Querying</li></ul>
+        </div>
+      </details>
+    </article>
+
+    <article class="card" id="supply-chain-course">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/Tb2zZ8AKftY?rel=0"
+          title="COMPLETE Supply Chain Management Course"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="title-row"><h3 class="title">COMPLETE Supply Chain Management Course</h3><button type="button" class="share-btn" data-share="supply-chain-course" aria-label="Copy link: COMPLETE Supply Chain Management Course" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-share"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></g><path class="i-check" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>
+
+      <details class="dd">
+        <summary>Curriculum <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="dd-body">
+          <ul class="lessons">
+          <li><span>Introduction to Supply Chain Management Course</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY" target="_blank" rel="noopener">00:00:00</a></span></li>
+          <li><span>Supply Chain Management Roadmap</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=136s&amp;pp=0gcJCWMAwfN6Pr3D" target="_blank" rel="noopener">00:02:16</a></span></li>
+          <li><span>What is Supply Chain?</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=511s" target="_blank" rel="noopener">00:08:31</a></span></li>
+          <li><span>What is Supply Chain Management?</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=757s" target="_blank" rel="noopener">00:12:37</a></span></li>
+          <li><span>Benefits of Supply Chain Management</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=886s" target="_blank" rel="noopener">00:14:46</a></span></li>
+          <li><span>Stages of Supply Chain</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=1041s" target="_blank" rel="noopener">00:17:21</a></span></li>
+          <li><span>Bullwhip Effect</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=1929s" target="_blank" rel="noopener">00:32:09</a></span></li>
+          <li><span>Sustainable Supply Chain Transformation</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=2157s" target="_blank" rel="noopener">00:35:57</a></span></li>
+          <li><span>Circular Supply Chain</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=4997s" target="_blank" rel="noopener">01:23:17</a></span></li>
+          <li><span>What is Inventory?</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=5652s" target="_blank" rel="noopener">01:34:12</a></span></li>
+          <li><span>Inventory Performance Metrics</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=9556s" target="_blank" rel="noopener">02:39:16</a></span></li>
+          <li><span>Stockout Cost</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=10037s" target="_blank" rel="noopener">02:47:17</a></span></li>
+          <li><span>Demand Forecasting</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=10229s" target="_blank" rel="noopener">02:50:29</a></span></li>
+          <li><span>Introduction to Logistics</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=10404s" target="_blank" rel="noopener">02:53:24</a></span></li>
+          <li><span>Forward &amp; Reverse Logistics</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=11151s" target="_blank" rel="noopener">03:05:51</a></span></li>
+          <li><span>TMS (Transportation Management System)</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=13028s" target="_blank" rel="noopener">03:37:08</a></span></li>
+          <li><span>Warehouse and Storage Logistics</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=14623s" target="_blank" rel="noopener">04:03:43</a></span></li>
+          <li><span>What is a Distribution Channel?</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=16290s" target="_blank" rel="noopener">04:31:30</a></span></li>
+          <li><span>Product Lifecycle and Distribution Challenges</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=18595s" target="_blank" rel="noopener">05:09:55</a></span></li>
+          <li><span>Introduction to O2C</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=19516s" target="_blank" rel="noopener">05:25:16</a></span></li>
+          <li><span>OTIF (On Time In Full)</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=22822s" target="_blank" rel="noopener">06:20:22</a></span></li>
+          <li><span>Introduction to Procurement</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=23934s" target="_blank" rel="noopener">06:38:54</a></span></li>
+          <li><span>Components of Supply Strategies</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=27568s" target="_blank" rel="noopener">07:39:28</a></span></li>
+          <li><span>Procurement Strategy</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=27687s" target="_blank" rel="noopener">07:41:27</a></span></li>
+          <li><span>Purchasing KPIs &amp; Metrics</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=28145s" target="_blank" rel="noopener">07:49:05</a></span></li>
+          <li><span>What is Custom Duty?</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=30911s" target="_blank" rel="noopener">08:35:11</a></span></li>
+          <li><span>Tariffs</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=31510s" target="_blank" rel="noopener">08:45:10</a></span></li>
+          <li><span>International Freight Flows</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=31594s" target="_blank" rel="noopener">08:46:34</a></span></li>
+          <li><span>Break-Even Analysis</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=32395s" target="_blank" rel="noopener">08:59:55</a></span></li>
+          <li><span>Introduction to E-Commerce</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=35755s" target="_blank" rel="noopener">09:55:55</a></span></li>
+          <li><span>E-Business Models (B2B, B2C, C2B, C2C)</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=36344s" target="_blank" rel="noopener">10:05:44</a></span></li>
+          <li><span>Last Mile Logistics</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=37540s" target="_blank" rel="noopener">10:25:40</a></span></li>
+          <li><span>Quick Commerce</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=37841s" target="_blank" rel="noopener">10:30:41</a></span></li>
+          <li><span>Interview Questions for Supply Chain Roles</span><span class="time"><a href="https://www.youtube.com/watch?v=Tb2zZ8AKftY&amp;t=38844s" target="_blank" rel="noopener">10:47:24</a></span></li>
+          </ul>
+        </div>
+      </details>
+    </article>
+
     </div>
   </section>
 
@@ -612,6 +963,12 @@
       <p>Free Resources শীঘ্রই এখানে যুক্ত করা হবে।</p>
     </div>
   </section>
+
+  <div class="to-top-row">
+    <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+    </button>
+  </div>
 
 </main>
 <script>
@@ -630,6 +987,23 @@
   panel.addEventListener('click',function(e){if(e.target.tagName==='A')setOpen(false);});
   document.addEventListener('click',function(e){if(!panel.contains(e.target))setOpen(false);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){setOpen(false);btn.focus();}});
+})();
+</script>
+
+<script>
+(function(){
+  var t=document.getElementById('toTop');
+  if(!t)return;
+  var row=t.parentNode;
+  function onScroll(){
+    var y=window.pageYOffset||document.documentElement.scrollTop||0;
+    row.classList.toggle('show',y>250);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  t.addEventListener('click',function(){
+    window.scrollTo({top:0,left:0,behavior:'smooth'});
+  });
 })();
 </script>
 
